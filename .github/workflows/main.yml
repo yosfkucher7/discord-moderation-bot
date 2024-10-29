@@ -1,12 +1,10 @@
-name: Node.js CI
+name: CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   build:
@@ -19,10 +17,24 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '18' # Specify the Node.js version
+        node-version: '18'  # Specify your Node.js version here
 
     - name: Install dependencies
       run: npm install
 
-    - name: Run tests
-      run: npm test
+    - name: Run the bot
+      run: npm start
+
+    - name: Send notification to Discord on success
+      if: ${{ success() }}
+      run: |
+        curl -H "Content-Type: application/json" \
+        -d '{"content": "✅ The workflow completed successfully!"}' \
+        https://discord.com/api/webhooks/1285689899000922197/rSYgEFmtdl1wo8eO66gU1lkvObpYlgREKMhI9ncSVvuNkyKazREtEsgOPuC_y1HGABqb
+
+    - name: Send failure notification to Discord
+      if: ${{ failure() }}
+      run: |
+        curl -H "Content-Type: application/json" \
+        -d '{"content": "❌ The workflow failed!"}' \
+        https://discord.com/api/webhooks/1285689899000922197/rSYgEFmtdl1wo8eO66gU1lkvObpYlgREKMhI9ncSVvuNkyKazREtEsgOPuC_y1HGABqb

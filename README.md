@@ -119,6 +119,7 @@ Thank you for contributing to the Moderation Bot! Your help is greatly appreciat
 git add README.md
 git commit -m "Add simplified contribution guidelines and contributor template"
 git push
+```
 
 ## 🎉 Contributors
 

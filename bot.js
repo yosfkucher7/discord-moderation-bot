@@ -1,41 +1,42 @@
-require("dotenv").config();
-const fs = require("fs");
-const { Client, Collection, GatewayIntentBits } = require("discord.js");
+require('dotenv').config();
+const { Client, Intents } = require('discord.js');
+const fs = require('fs');
+const path = require('path');
 
 const client = new Client({
     intents: [
-        GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.GuildMembers
-    ]
+        Intents.FLAGS.GUILDS,
+        Intents.FLAGS.GUILD_MESSAGES,
+    ],
 });
-client.commands = new Collection();
 
-// Load commands from the 'commands' folder
-const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
-for (const file of commandFiles) {
-    const command = require(`./commands/${file}`);
-    client.commands.set(command.name, command);
+// Check if the commands folder exists
+const commandsPath = path.join(__dirname, 'commands');
+if (!fs.existsSync(commandsPath)) {
+    console.error("The commands folder does not exist!");
+} else {
+    console.log("The commands folder exists.");
 }
 
-client.once("ready", () => {
+client.once('ready', () => {
     console.log(`Logged in as ${client.user.tag}`);
 });
 
-client.on("messageCreate", message => {
-    if (!message.content.startsWith("!") || message.author.bot) return;
+client.on('messageCreate', (message) => {
+    if (!message.content.startsWith('!') || message.author.bot) return;
+
     const args = message.content.slice(1).trim().split(/ +/);
     const commandName = args.shift().toLowerCase();
 
-    if (!client.commands.has(commandName)) return;
-    const command = client.commands.get(commandName);
+    const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+    const command = commandFiles.find(file => file === `${commandName}.js`);
 
-    try {
-        command.execute(message, args);
-    } catch (error) {
-        console.error(error);
-        message.reply("There was an error executing that command.");
+    if (command) {
+        const commandModule = require(`./commands/${command}`);
+        commandModule.execute(message, args);
+    } else {
+        message.channel.send("Unknown command!");
     }
 });
 
-client.login(process.env.DISCORD_TOKEN);
+client.login(process.env.TOKEN);

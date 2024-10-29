@@ -56,8 +56,6 @@ Clear: Usage: !clear <number> - Deletes the specified number of recent messages 
 Warn: Usage: !warn @user <reason> - Logs a warning for the mentioned user, including the reason.
 
 
-File Structure
-
 moderation-bot/
 ├── commands/             # Contains individual command files
 │   ├── kick.js

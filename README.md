@@ -121,7 +121,7 @@ git commit -m "Add simplified contribution guidelines and contributor template"
 git push
 ```
 
-## 🎉 Contributors
+## ⭐ Contributors
 
 Thank you to all the contributors who helped improve the **Moderation Bot**! ❤️
 
@@ -129,16 +129,9 @@ Thank you to all the contributors who helped improve the **Moderation Bot**! ❤
   <tr>
     <td align="center">
       <a href="https://github.com/hoshikoooo">
-        <img src="https://avatars.githubusercontent.com/hoshikoooo" width="100px;" alt="Hoshikoooo"/><br>
+        <img src="https://avatars.githubusercontent.com/hoshikoooo" width="100px;" alt="Hoshikoooo" style="border-radius: 50%; border: 2px solid #ddd;"/><br>
         <sub><b>Hoshikoooo</b></sub>
       </a>
     </td>
-    <td align="center">
-      <a href="https://github.com/ContributorUsername">
-        <img src="https://avatars.githubusercontent.com/ContributorUsername" width="100px;" alt="Contributor Name"/><br>
-        <sub><b>Contributor Name</b></sub>
-      </a>
-    </td>
-    <!-- Add more contributors here -->
   </tr>
 </table>

@@ -81,9 +81,6 @@ git push origin feature/YourFeature
 7. Create a Pull Request: Submit your changes for review.
 
 
-
-📋 Contributor Template
-
 When submitting a Pull Request, please use the following template:
 
 ## 📝 Pull Request Title
@@ -122,3 +119,25 @@ Thank you for contributing to the Moderation Bot! Your help is greatly appreciat
 git add README.md
 git commit -m "Add simplified contribution guidelines and contributor template"
 git push
+
+## 🎉 Contributors
+
+Thank you to all the contributors who helped improve the **Moderation Bot**! ❤️
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/hoshikoooo">
+        <img src="https://avatars.githubusercontent.com/hoshikoooo" width="100px;" alt="Hoshikoooo"/><br>
+        <sub><b>Hoshikoooo</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/ContributorUsername">
+        <img src="https://avatars.githubusercontent.com/ContributorUsername" width="100px;" alt="Contributor Name"/><br>
+        <sub><b>Contributor Name</b></sub>
+      </a>
+    </td>
+    <!-- Add more contributors here -->
+  </tr>
+</table>

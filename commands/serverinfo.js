@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
     name: 'serverinfo',
@@ -16,7 +16,7 @@ module.exports = {
         const memberCount = guild.memberCount;
         const createdAt = guild.createdAt.toDateString();
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setColor('#0099ff')
             .setTitle('Server Information')
             .setDescription(`**Server Name:** ${name}\n**Members:** ${memberCount}\n**Created On:** ${createdAt}\n**Owner:** ${ownerTag}`);

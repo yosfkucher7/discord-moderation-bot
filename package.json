@@ -4,10 +4,14 @@
   "description": "A Discord moderation bot",
   "main": "bot.js",
   "scripts": {
-    "start": "node bot.js"
+    "start": "node bot.js",
+    "dev": "nodemon bot.js",
+    "test": "echo \"No tests specified\" && exit 0"
   },
   "dependencies": {
     "discord.js": "^14.3.0",
     "dotenv": "^16.0.0"
-  }
+  },
+  "license": "MIT",
+  "author": "Your Name <your.email@example.com>"
 }

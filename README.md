@@ -1,16 +1,18 @@
 ---
 
-# Moderation Bot
+# 🌟 Moderation Bot
 
 A simple Discord moderation bot built with [Discord.js](https://discord.js.org/) to help manage your server effectively.
 
-## Features
-- Kick, ban, mute, and unmute users
-- Clear messages in bulk
-- Log moderation actions to a channel
-- Permission checks for moderation commands
+## ✨ Features
+- 🔨 **Kick** users
+- 🚫 **Ban** users
+- 🔇 **Mute** and 🔊 **Unmute** users
+- 🧹 **Clear** messages in bulk
+- 📜 Log moderation actions to a channel
+- 🔒 Permission checks for moderation commands
 
-## Setup
+## 🚀 Setup
 
 1. **Clone the Repository**  
    ```bash
@@ -38,23 +40,15 @@ npm start
 
 
 
-Commands
+🛠️ Commands
 
-File Structure
-
-moderation-bot/
-├── commands/             # Individual command files
-├── .env.example          # Environment variable example
-├── bot.js                # Main bot file
-└── README.md             # Documentation
-
-License
+📜 License
 
 This project is licensed under the MIT License.
 
 
 ---
 
-Feel free to reach out with any questions or open an issue if you encounter any problems!
+Feel free to reach out with any questions or open an issue if you encounter any problems! 🤖
 
 ---

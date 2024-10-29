@@ -1,4 +1,4 @@
-name: CI
+name: Node.js CI
 
 on:
   push:
@@ -8,33 +8,30 @@ on:
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout repository
       uses: actions/checkout@v2
 
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '18'  # Specify your Node.js version here
+        node-version: '18'  # Update Node.js version to 18
 
     - name: Install dependencies
       run: npm install
 
-    - name: Run the bot
-      run: npm start
+    - name: Run Lint
+      run: npm run lint
+      continue-on-error: true  # Allows workflow to continue even if lint fails
 
-    - name: Send notification to Discord on success
-      if: ${{ success() }}
-      run: |
-        curl -H "Content-Type: application/json" \
-        -d '{"content": "✅ The workflow completed successfully!"}' \
-        https://discord.com/api/webhooks/1285689899000922197/rSYgEFmtdl1wo8eO66gU1lkvObpYlgREKMhI9ncSVvuNkyKazREtEsgOPuC_y1HGABqb
+    - name: Run Tests
+      run: npm test
 
-    - name: Send failure notification to Discord
-      if: ${{ failure() }}
+    - name: Notify on Discord
+      env:
+        WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK }}
       run: |
-        curl -H "Content-Type: application/json" \
-        -d '{"content": "❌ The workflow failed!"}' \
-        https://discord.com/api/webhooks/1285689899000922197/rSYgEFmtdl1wo8eO66gU1lkvObpYlgREKMhI9ncSVvuNkyKazREtEsgOPuC_y1HGABqb
+        curl -H "Content-Type: application/json" -X POST -d '{"content": "GitHub Actions workflow completed!"}' $WEBHOOK_URL

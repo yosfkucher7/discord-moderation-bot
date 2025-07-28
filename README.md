@@ -121,7 +121,7 @@ git commit -m "Add simplified contribution guidelines and contributor template"
 git push
 ```
 
-## ⭐ Contributors
+## ⭐ Contributors j
 
 Thank you to all the contributors who helped improve the **Moderation Bot**! ❤️
 
